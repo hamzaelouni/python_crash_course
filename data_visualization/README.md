@@ -39,6 +39,12 @@ pip install matplotlib
 Important : you should run `source my-env/bin/activate` each time you open a new terminal to use this env.
 
 
+we can the full list of available styles using these commands on a terminal:
+```
+import matplotlib.pyplot as plt
+plt.style.available
+```
+
 ## python example code to learn from 
 a function can return multiple values at once, and you can assign them in a single line.
 
@@ -51,3 +57,4 @@ a, b = two_values()
 print(a)  # 10                          
 print(b)  # 20
 ```
+

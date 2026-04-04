@@ -37,3 +37,17 @@ source my-env/bin/activate
 pip install matplotlib
 ```
 Important : you should run `source my-env/bin/activate` each time you open a new terminal to use this env.
+
+
+## python example code to learn from 
+a function can return multiple values at once, and you can assign them in a single line.
+
+tuple unpacking :
+```
+def two_values():
+    return 10, 20
+
+a, b = two_values()                          
+print(a)  # 10                          
+print(b)  # 20
+```

@@ -24,6 +24,11 @@ To create a tuple, use parentheses (): t = ('first', 'second', 'third')
 * Dictionaries are perfect when you want to associate names (keys) with values.
 * Define a dictionary using curly braces {} with key-value pairs
 
+#### Decorators 
+* Decorators in Python are like wrappers that add extra functionality to existing code without modifying it directly.
+* Decorators in Python are higher-order functions, meaning they take another function as input, add extra functionality around it, and return the enhanced version.
+
+
 
 
 

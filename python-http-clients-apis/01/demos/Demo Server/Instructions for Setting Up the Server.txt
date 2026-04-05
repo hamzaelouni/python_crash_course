@@ -1,0 +1,52 @@
+
+
+Enter the file in the Terminal (or Command Prompt).
+Use 'cd' to enter the directory of the Demo Server.
+
+
+Install all of the dependencies.
+
+On Linux/MacOS:
+python3 -m pip install -r requirements.txt
+
+On Windows:
+python -m pip install -r requirements.txt
+
+
+Once they are installed, you can run the FastAPI server.
+
+On Linux/MacOS:
+python3 server.py
+
+On Windows:
+python server.py
+
+This will run the server on your localhost address 127.0.0.1 port 8000.
+Add /docs to the address to see the automatically generated Swagger documentation of the API.
+
+
+Alternatively, if you don't want to install the libraries globally, you can create a virtual environment:
+
+
+Create the virtual environment:
+python3 -m venv venv
+
+On Windows:
+python -m venv venv
+
+
+Activate the environment:
+source venv/bin/activate
+
+On Windows:
+venv\Scripts\activate
+
+
+Then you can run commands from above to install dependencies and start the server.
+
+
+You can exit the env at any time with:
+deactivate
+
+
+

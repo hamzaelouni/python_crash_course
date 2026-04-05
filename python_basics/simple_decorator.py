@@ -17,4 +17,9 @@ def simple_decorator(func):
 def example_function():
     print("Function executed.")
 
+@simple_decorator
+def houda():
+    print("houda love.")
+
 example_function()
+houda()

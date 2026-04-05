@@ -27,10 +27,82 @@ To create a tuple, use parentheses (): t = ('first', 'second', 'third')
 #### Decorators 
 * Decorators in Python are like wrappers that add extra functionality to existing code without modifying it directly.
 * Decorators in Python are higher-order functions, meaning they take another function as input, add extra functionality around it, and return the enhanced version.
+* Only override __new__ when you need to control object creation itself, not just initialization.
+
+
+--- 
+
+`cls` is used in class methods to refer to the class itself, whereas `self` is used in instance methods to refer to a specific instance of the class.
+
+---
+###  __ new __
+ * the object creator  
+ * is the method that creates and returns a new instance of a class. It runs before __init__
+
+```
+MyClass()                                                                                                                                                                                                                      
+→ __new__(cls)   # 1. creates the object (allocates memory)                                                                                                                                                                      
+→ __init__(self) # 2. initializes it (sets attributes)
+```
 
 
 
+##### When to use it: 
+1. Singleton — only one instance ever exists
+```
+class Singleton:
+      _instance = None
+
+      def __new__(cls):
+          if not cls._instance:                                                                                                                                                                          cls._instance = super().__new__(cls)
+          return cls._instance                                                                                                                                                                                                      
+a = Singleton()
+b = Singleton()
+print(a is b)  # True
+```
+2. Immutable types — you can't use __init__ to modify them
+
+int, str, tuple are immutable — by the time __init__ runs, the value is already fixed. You must use __new__:
+```
+class PositiveInt(int):                                                                                                                                                                                                            
+    def __new__(cls, value):
+        if value <= 0:                                                                                                                                                                                   raise ValueError("Must be positive")
+        return super().__new__(cls, value)  # value is set here, not in __init__
+
+n = PositiveInt(5)   # works                
+n = PositiveInt(-1)  # ValueError 
+
+```
+ 
+3. Controlling which class gets instantiated
+```
+class Animal:                           
+  def __new__(cls, kind):
+      if kind == "dog":                                                                                                                                                                                                          
+         return super().__new__(Dog)
+      return super().__new__(Cat)
+
+class Dog(Animal): pass
+class Cat(Animal): pass
+
+a = Animal("dog")                                                                                                                                                                                                                  
+print(type(a))  # <class 'Dog'>
+```
+
+---
+
+In almost every Python class, the implicit parent is object — the base class of everything in Python.
+```
+class Configuration:                                                                                                                                                                                       pass
+
+# is exactly the same as:
+class Configuration(object):            
+      pass
+```     
 
 
-
-
+So when you write super().__new__(cls) inside Configuration:
+``` 
+super() → object
+super().__new__(cls) → object.__new__(cls)   
+``` 

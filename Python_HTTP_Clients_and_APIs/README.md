@@ -1,1 +1,0 @@
-`Requests` a simple http library for python, allows us to send http requests easily

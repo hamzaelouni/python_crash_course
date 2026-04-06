@@ -1,3 +1,5 @@
+PIP is the package installer for python
+
 ⏺ Python files (modules) can contain any of the following:
 
 - Variables/constants — MAX_RETRIES = 3
@@ -130,6 +132,11 @@ super().__new__(cls) → object.__new__(cls)
 * `cls(...)`: Calls the full construction process: `__new__ (create) + __init__ (initialize)`
 *  `super().__new__(cls)` : Only handles object creation (memory allocation), skipping `__init__`. 
     It's used inside a class definition to control how the object is born.
+
+---
+
+
+
 
 
 
